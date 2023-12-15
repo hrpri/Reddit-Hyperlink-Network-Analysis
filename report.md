@@ -8,10 +8,9 @@ The first measure of centrality is degree centrality. A node's degree centrality
 ## Closeness Centrality
 Closeness centrality measures a node's centrality based on its distance from other nodes in the graph. The issue with this metric is that if a graph has disconnected subgraphs, it only measures centrality within the parent subgraph, not the entire network. Thankfully, this can be addjusted for, resulting in a value relative to the entire network. The formula for this measure is $C_{WF}(u) = \frac{n-1}{N-1} \frac{n - 1}{\sum_{v=1}^{n-1} d(v, u)}$ where d(v, u) is the shortest paths distance between v and u, n-1 is the number of nodes reachable from u, and N-1 is the number of nodes in the graph. This adjusted metric was proposed by Wasserman and Faust in their 1994 book, *Social Network Analysis: Methods and Applications*. Similar to degree centrality, both the in and out closeness centrality of a node can be calculated using the reverse of a graph.
 ## Running the Project
-1. Navigate to [this](https://snap.stanford.edu/data/soc-RedditHyperlinks.html) link and download the file labeled `soc-redditHyperlinks-body.tsv`.
-2. Clone this github repo.
-3. Make sure the data file is in the outermost directory.
-4. Run the project with `cargo run --release`.
+1. Clone this github repo.
+2. Unzip the file `soc-redditHyperlinks-body.tsv.zip`
+3. Run the project with `cargo run --release`.
 
 Please note that this project will take a considerable amount of time to run. This is because of the extreme computational complexity of computing closeness centrality (for each node in the graph, its shortest paths distnace to every reachable node must be computed). I have implemented multithreading for the complex part and it takes about 4 minutes for the entire project to complete running on 10 cpu cores. 
 
